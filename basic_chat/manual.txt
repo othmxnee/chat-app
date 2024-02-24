@@ -1,2 +1,4 @@
 RUN REDIS SERVER
 docker run --rm -p 6379:6379 redis:7
+RUN the app:
+python3 manage.py runserver

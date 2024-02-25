@@ -1,3 +1,4 @@
+# chat/views.py
 from django.shortcuts import render
 import threading
 from .models import ChatMessage

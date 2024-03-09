@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,6 +27,14 @@ SECRET_KEY = 'django-insecure-c3pa&&vvksvf6@z23dds)g!=6#^052*#!#09nvo&@u1%abq+2-
 DEBUG = True
 
 ALLOWED_HOSTS = []
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',  # For form data
+        'rest_framework.parsers.MultiPartParser',  # For multipart file uploads
+    ]
+}
+
 
 
 # Application definition
@@ -39,7 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
-    'chatapp'
+    'chatapp',
+    'upload',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +145,5 @@ CHANNEL_LAYERS = {
         },
     },
 }
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

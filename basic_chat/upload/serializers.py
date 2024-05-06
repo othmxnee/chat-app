@@ -12,6 +12,6 @@ from .models import UploadedFile
 class UploadedFileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UploadedFile
-        fields = ('id', 'file', 'name', 'description')  # Assuming you have these fields
+        fields = ('id', 'file', 'name', 'description')  
         extra_kwargs = {'file':{'required': False},'name': {'required': False}, 'description': {'required': False}}
 

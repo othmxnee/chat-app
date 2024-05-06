@@ -1,3 +1,7 @@
+pip install django
+pip install rest_framework
+pip install channels channels_redis
+
 RUN REDIS SERVER
 docker run --rm -p 6379:6379 redis:7
 RUN the app:
